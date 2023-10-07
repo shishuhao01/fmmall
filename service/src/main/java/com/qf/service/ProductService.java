@@ -12,5 +12,9 @@ public interface ProductService {
 
        ResultData deleteProduct (int id);
 
+       ResultData selectByName (String name,Integer pageNum, Integer pageSize);
+
+       ResultData selectPageById (Integer productId);
+
 
 }

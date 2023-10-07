@@ -2,6 +2,11 @@ package com.qf.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.qf.pojo.Product;
+import com.qf.pojo.ResultData;
+import org.apache.ibatis.annotations.Param;
+
+import javax.xml.transform.Result;
+import java.util.List;
 
 /**
  * <p>

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.qf.mapper.ProductMapper">
-
+    <select id="selectByName" resultType="com.qf.pojo.Product">
+        select * from product where product_name like "%${productName}%" limit #{pageNum * pageSize},pageSize
+    </select>
+<!--    &#45;&#45; 模糊查询 两种方式-->
+<!--    &#45;&#45;         select * from product where product_name like concat("%",#{productName},"%")-->
 </mapper>

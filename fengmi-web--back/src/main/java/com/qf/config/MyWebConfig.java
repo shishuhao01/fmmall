@@ -24,11 +24,11 @@ public class MyWebConfig implements WebMvcConfigurer {
 
     }
     //添加虚拟路径，相当于通过一个路径访问本地磁盘上的内容；
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/image/**")
-                .addResourceLocations("file:D:\\picture\\");
-    }
+//    @Override
+//    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+//        registry.addResourceHandler("/image/**")
+//                .addResourceLocations("file:D:\\picture\\");
+//    }
     //拦截器配置
 
 
