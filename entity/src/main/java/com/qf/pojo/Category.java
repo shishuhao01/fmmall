@@ -2,9 +2,11 @@ package com.qf.pojo;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.io.Serializable;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
+import java.io.Serializable;
+import java.util.List;
 
 /**
  * <p>
@@ -63,6 +65,9 @@ public class Category implements Serializable {
      * 背景颜色
      */
     private String categoryBgColor;
+
+    //一对多
+    private List<Category> categoryList;
 
 
 }

@@ -6,6 +6,7 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/fengmi-web--back/pom.xml" />
+        <option value="$PROJECT_DIR$/fmmall-web-patrol/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

@@ -1,7 +1,9 @@
 package com.qf.mapper;
 
-import com.qf.pojo.Category;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.qf.pojo.Category;
+
+import java.util.List;
 
 /**
  * <p>
@@ -12,5 +14,11 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @since 2023-10-08
  */
 public interface CategoryMapper extends BaseMapper<Category> {
+    List<Category> selectAllCategory();
+
+
+    //根据id查询二三级菜单
+    List<Category> selectSecondaryCategory(int category_Id);
+
 
 }

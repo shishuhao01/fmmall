@@ -1,7 +1,7 @@
 package com.qf.mapper;
 
-import com.qf.pojo.IndexImg;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.qf.pojo.IndexImg;
 
 /**
  * <p>

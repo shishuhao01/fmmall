@@ -1,9 +1,11 @@
 package com.qf.pojo;
 
-import java.time.LocalDateTime;
-import java.io.Serializable;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  * <p>
@@ -62,12 +64,12 @@ public class IndexImg implements Serializable {
     /**
      * 创建时间 创建时间
      */
-    private LocalDateTime createTime;
+    private Date createTime;
 
     /**
      * 更新时间 更新
      */
-    private LocalDateTime updateTime;
+    private Date updateTime;
 
 
 }

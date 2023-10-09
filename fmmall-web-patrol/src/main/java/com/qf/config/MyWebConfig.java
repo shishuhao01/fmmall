@@ -4,7 +4,6 @@ package com.qf.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -24,11 +23,11 @@ public class MyWebConfig implements WebMvcConfigurer {
 
     }
     //添加虚拟路径，相当于通过一个路径访问本地磁盘上的内容；
-//    @Override
-//    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-//        registry.addResourceHandler("/image/**")
-//                .addResourceLocations("file:D:\\picture\\");
-//    }
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/image/**")
+                .addResourceLocations("file:D:\\Grade3\\Myself\\java\\Springboot Project\\fmmall-shopping\\pictures\\images\\");
+    }
     //拦截器配置
 
 
