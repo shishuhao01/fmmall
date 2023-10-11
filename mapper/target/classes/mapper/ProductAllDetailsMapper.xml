@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.mapper.ProductAllDetailsMapper">
+
+    <resultMap id="ProductAllDetails" type="com.qf.pojo.ProductAllDetails">
+        <id property="productId" column="product_id"></id>
+        <result property="productName" column="product_name"></result>
+        <result property="categoryId" column="category_id"></result>
+        <result property="rootCategoryId" column="root_category_id"></result>
+        <result property="soldNum" column="sold_num"></result>
+        <result property="productStatus" column="product_status"></result>
+        <result property="content" column="content"></result>
+        <result property="createTime" column="create_time"></result>
+        <result property="updateTime" column="update_time"></result>
+        <result property="commContent" column="comm_content"></result>
+        <result property="url" column="url"></result>
+        <result property="productPlace" column="product_place"></result>
+        <result property="sellPrice" column="sell_price"></result>
+    </resultMap>
+    <select id="selectProductAllDetails" resultMap="ProductAllDetails">
+        select p1.product_id "product_id",
+               p1.product_name "product_name",
+               p1.category_id "category_id",
+               p1.root_category_id "root_category_id",
+               p1.sold_num "sold_num",
+               p1.product_status "product_status",
+               p1.content "content",
+               p1.create_time "create_time",
+               p1.update_time "update_time",
+               p2.comm_content "comm_content",
+               p3.url "url",
+               p4.product_place "product_place",
+               p5.sell_price "sell_price"
+        from product p1
+                 left join product_comments p2 on p2.product_id = p1.product_id
+                 left join product_img p3 on p3.product_id = p1.product_id
+                 left join product_params p4 on p4.product_id = p1.product_id
+                 left join product_sku p5 on p5.product_id = p1.product_id
+    </select>
+
+</mapper>

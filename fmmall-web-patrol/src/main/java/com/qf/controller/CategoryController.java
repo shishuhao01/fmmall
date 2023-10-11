@@ -27,4 +27,10 @@ public class CategoryController {
         return categoryService.selectSecondaryCategories(parentId);
     }
 
+
+    @GetMapping("/categories3/{parentId}")
+    public ResultData selectThirdCategories (@PathVariable int parentId) {
+        return categoryService.selectThirdCategories(parentId);
+    }
+
 }

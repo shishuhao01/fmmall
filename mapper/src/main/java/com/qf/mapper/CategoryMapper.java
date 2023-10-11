@@ -21,4 +21,7 @@ public interface CategoryMapper extends BaseMapper<Category> {
     List<Category> selectSecondaryCategory(int category_Id);
 
 
+    List<Category> selectThirdCategory (int categoryId);
+
+
 }

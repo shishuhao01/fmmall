@@ -96,6 +96,44 @@
                  left join category c2 on c2.parent_id = c1.category_id
                  left join category c3 on c3.parent_id = c2.category_id
         where c1.category_id =  #{category_id};
+
+
+
+
+
+
+
+
+
+
+
+
+    </select>
+
+
+
+
+
+    <resultMap id="CategoryMap3" type="com.qf.pojo.Category">
+        <!--            三级菜单-->
+            <id property="categoryId" column="category_id3"></id>
+            <id property="categoryName" column="category_name3"></id>
+            <id property="categoryLevel" column="category_level3"></id>
+            <id property="parentId" column="parent_id3"></id>
+
+    </resultMap>
+
+
+
+    <select id="selectThirdCategory" resultMap="CategoryMap3">
+        select
+            c3.category_id "category_id3",
+            c3.category_name "category_name3",
+            c3.category_level "category_level3",
+            c3.parent_id "parent_id3"
+        from category c2
+                 left join category c3 on c3.parent_id = c2.category_id
+        where c2.category_id = #{categoryId};
     </select>
 
 

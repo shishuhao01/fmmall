@@ -9,5 +9,7 @@ public interface CategoryService {
     ResultData selectAllCategories();
     ResultData selectSecondaryCategories (int parent_id);
 
+    ResultData selectThirdCategories (int categoryId);
+
 
 }

@@ -1,5 +1,6 @@
 package com.qf.pojo;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
@@ -70,6 +71,14 @@ public class Product implements Serializable {
      */
     @JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
     private Date updateTime;
+
+
+
+    @TableField(exist = false)
+    private ProductImg productImg;
+
+    @TableField(exist = false)
+    private ProductSku productSku;
 
 
 }

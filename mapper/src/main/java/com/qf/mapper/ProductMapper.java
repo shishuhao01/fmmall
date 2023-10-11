@@ -17,5 +17,6 @@ import java.util.List;
  * @since 2023-10-05
  */
 public interface ProductMapper extends BaseMapper<Product> {
+    List<Product> selectByCategoryId (@Param("categoryId") int categoryId, @Param("pageNum") int pageNum, @Param("pageSize") int pageSize);
 
 }

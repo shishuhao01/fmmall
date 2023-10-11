@@ -6,4 +6,28 @@
     </select>
 <!--    &#45;&#45; 模糊查询 两种方式-->
 <!--    &#45;&#45;         select * from product where product_name like concat("%",#{productName},"%")-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--    用户端后端-->
+    <select id="selectByCategoryId" resultType="com.qf.pojo.Product" >
+        select p.product_id, p.product_name from product p where category_id = #{categoryId} limit #{pageNum},#{pageSize}
+    </select>
+
+
+
+
+
 </mapper>

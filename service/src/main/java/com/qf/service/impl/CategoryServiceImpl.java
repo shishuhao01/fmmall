@@ -36,4 +36,13 @@ public class CategoryServiceImpl implements CategoryService {
         }
         return new ResultData(100,"暂无分类数据");
     }
+
+    @Override
+    public ResultData selectThirdCategories(int categoryId) {
+        List<Category> categories = categoryMapper.selectThirdCategory(categoryId);
+        if (categories != null && categories.size() > 0) {
+            return new ResultData(0,"查询成功",categories);
+        }
+        return new ResultData(100,"暂无分类数据");
+    }
 }
