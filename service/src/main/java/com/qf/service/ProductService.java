@@ -48,5 +48,8 @@ public interface ProductService {
        //根据id查询商品首页信息
        ResultData selectProductHomePage (int productId,int pageNum,int pageSize);
 
+       ResultData selectProductAllMsg (int productId);
+
+
 
 }

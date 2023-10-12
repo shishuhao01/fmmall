@@ -2,9 +2,7 @@ package com.qf.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.qf.mapper.ProductImgMapper;
-import com.qf.mapper.ProductMapper;
-import com.qf.mapper.ProductSkuMapper;
+import com.qf.mapper.*;
 import com.qf.pojo.*;
 import com.qf.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +22,16 @@ public class ProductServiceImpl implements ProductService {
 
     @Autowired
     private ProductImgMapper productImgMapper;
+
+    @Autowired
+    private ProductCommentsMapper productCommentsMapper;
+
+    @Autowired
+    private ProductParamsMapper productParamsMapper;
+
+
+
+
 
     @Override
     public ResultData selectByPage(int pageNum, int pageSize) {
@@ -162,5 +170,41 @@ public class ProductServiceImpl implements ProductService {
         myPage.setTotalPageNum(AllPageNums);
         myPage.setData(Re);
         return new ResultData(0,"查询成功",myPage);
+    }
+
+    @Override
+    public ResultData selectProductAllMsg(int productId) {
+        List<Object> list = new ArrayList<>();
+
+        QueryWrapper<Product> productQueryWrapper = new QueryWrapper<>();
+        productQueryWrapper.eq("product_id",productId);
+        Product product = productMapper.selectOne(productQueryWrapper);
+        if (product == null) {
+            return new ResultData(100,"查询失败");
+        }
+
+        QueryWrapper<ProductSku> productSkuQueryWrapper = new QueryWrapper<>();
+        productSkuQueryWrapper.eq("product_id",productId);
+        ProductSku productSku = productSkuMapper.selectOne(productSkuQueryWrapper);
+        product.setProductSku(productSku);
+
+
+        QueryWrapper<ProductImg> productImgQueryWrapper = new QueryWrapper<>();
+        productImgQueryWrapper.eq("product_id",productId);
+        ProductImg productImg = productImgMapper.selectOne(productImgQueryWrapper);
+        product.setProductImg(productImg);
+
+
+        QueryWrapper<ProductParams> productParamsQueryWrapper = new QueryWrapper<>();
+        productParamsQueryWrapper.eq("product_id",productId);
+        ProductParams productParams = productParamsMapper.selectOne(productParamsQueryWrapper);
+        product.setProductParams(productParams);
+
+        QueryWrapper<ProductComments> productCommentsQueryWrapper = new QueryWrapper<>();
+        productCommentsQueryWrapper.eq("product_id",productId);
+        ProductComments productComments = productCommentsMapper.selectOne(productCommentsQueryWrapper);
+        product.setProductComments(productComments);
+
+        return new ResultData(0,"查询成功",product);
     }
 }

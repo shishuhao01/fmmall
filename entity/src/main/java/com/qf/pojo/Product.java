@@ -81,4 +81,11 @@ public class Product implements Serializable {
     private ProductSku productSku;
 
 
+    @TableField(exist = false)
+    private ProductComments productComments;
+
+    @TableField(exist = false)
+    private ProductParams productParams;
+
+
 }

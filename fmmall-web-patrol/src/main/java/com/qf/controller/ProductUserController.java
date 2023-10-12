@@ -19,4 +19,15 @@ public class ProductUserController {
     ) int categoryId,@RequestParam(name = "pageNum",defaultValue = "1") int pageNum,@RequestParam(name = "pageSize",defaultValue = "5") int pageSize) {
         return productService.selectProductHomePage(categoryId,pageNum,pageSize);
     }
+
+    @GetMapping("/details/{productId}")
+    public ResultData selectProductAllMsgByProductId (@PathVariable Integer productId) {
+        return productService.selectProductAllMsg(productId);
+    }
+
+
+
+
+
+
 }
